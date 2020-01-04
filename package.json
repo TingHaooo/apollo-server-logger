@@ -1,0 +1,52 @@
+{
+  "name": "apollo-server-logger",
+  "version": "1.0.0",
+  "description": "A logger for apollo server",
+  "main": "dist/index.js",
+  "module": "dist/foo.mjs",
+  "source": "src/index.ts",
+  "repository": "https://github.com/TingHaooo/apollo-server-logger.git",
+  "author": "<ztingh@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "lintStaged": "lint-staged",
+    "tsc": "tsc --noEmit",
+    "tsc:watch": "tsc --noEmit --watch",
+    "build": "microbundle",
+    "dev": "microbundle watch"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lintStaged && yarn tsc"
+    }
+  },
+  "lint-staged": {
+    "**/*{.js,ts}": [
+      "import-sort --write",
+      "eslint --fix --quiet",
+      "git add"
+    ]
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.14.0",
+    "@typescript-eslint/parser": "^2.14.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "husky": "^3.1.0",
+    "import-sort-cli": "^6.0.0",
+    "import-sort-parser-babylon": "^6.0.0",
+    "import-sort-parser-typescript": "^6.0.0",
+    "import-sort-style-module": "^6.0.0",
+    "lint-staged": "^9.5.0",
+    "microbundle": "^0.11.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^1.18.2",
+    "typescript": "^3.6.4"
+  }
+}
