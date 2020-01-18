@@ -10,8 +10,6 @@ import {
 import { GraphQLExtension } from 'graphql-extensions'
 import chalk from 'chalk'
 
-const log = console.log
-
 interface Args {
   tracing: boolean
 }
@@ -121,8 +119,8 @@ export class LoggerExtension<TContext = any>
 
   public didEncounterErrors?(errors: ReadonlyArray<GraphQLError>) {
     this.errorMessage = errors[0].message
-    log(chalk.black.bgRed(' ERROR '))
-    log(this.errorMessage)
+    console.log(chalk.black.bgRed(' ERROR '))
+    console.log(this.errorMessage)
   }
 
   public format(): any {
@@ -135,21 +133,21 @@ export class LoggerExtension<TContext = any>
       return
     }
     // status
-    log(chalk.black.bgGreen(' SUCCESSFUL '))
-    log('\n')
+    console.log(chalk.black.bgGreen(' SUCCESSFUL '))
+    console.log('\n')
     // basice informations
-    log(chalk.black.bgYellow(' QUERY STRING '))
-    log(this.queryString)
-    log('\n')
-    log(chalk.black.bgBlue(' VARIABLES '))
-    log(JSON.stringify(this.variables, null, 2))
-    log('\n')
+    console.log(chalk.black.bgYellow(' QUERY STRING '))
+    console.log(this.queryString)
+    console.log('\n')
+    console.log(chalk.black.bgBlue(' VARIABLES '))
+    console.log(JSON.stringify(this.variables, null, 2))
+    console.log('\n')
     // tracing infromations
     if (this.tracing) {
-      log(chalk.black.bgMagenta(' TRACING '))
-      log(`startTime: ${this.startTime}`)
-      log(`endTime: ${this.endTime}`)
-      log(`duration: ${nanoSecondsToString(this.duration)}`)
+      console.log(chalk.black.bgMagenta(' TRACING '))
+      console.log(`startTime: ${this.startTime}`)
+      console.log(`endTime: ${this.endTime}`)
+      console.log(`duration: ${nanoSecondsToString(this.duration)}`)
 
       this.resolverCalls.forEach(resolverCall => {
         const path = responsePathAsArray(resolverCall.path)
@@ -160,9 +158,9 @@ export class LoggerExtension<TContext = any>
               resolverCall.endOffset - resolverCall.startOffset
             )
           : 0
-        log(`${pathName} - ${duration}`)
+        console.log(`${pathName} - ${duration}`)
       })
-      log('\n')
+      console.log('\n')
     }
   }
 }
