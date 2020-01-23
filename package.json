@@ -15,7 +15,8 @@
     "build": "microbundle",
     "dev": "microbundle watch",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "converalls": "jest --coverage --coverageReporters=text-lcov | coveralls"
   },
   "husky": {
     "hooks": {
@@ -36,6 +37,7 @@
     "@typescript-eslint/parser": "^2.14.0",
     "apollo-server": "^2.9.16",
     "apollo-server-testing": "^2.9.16",
+    "coveralls": "^3.0.9",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.9.0",
     "eslint-config-standard": "^14.1.0",
