@@ -4,13 +4,8 @@
     "strict": true,
     "rootDir": "./src",
     "noImplicitAny": false,
-    "skipLibCheck": true,
+    "skipLibCheck": true
   },
-  "include": [
-    "./src/**/*",
-    "./src/**/*.json"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["./src/**/*", "./src/**/*.json"],
+  "exclude": ["node_modules"]
 }
