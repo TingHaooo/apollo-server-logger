@@ -36,7 +36,7 @@ interface RequestDidStartProps {
 const nanoSecondsToString = (time: bigint) => {
   const numberTime = Number(time)
   if (numberTime < 1e3) {
-    return `${numberTime}ns`
+    return `${numberTime} ns`
   } else if (numberTime >= 1e3 && numberTime < 1e6) {
     return `${Math.floor(numberTime / 1e3)} us`
   } else if (numberTime >= 1e6 && numberTime <= 1e9) {
