@@ -1,0 +1,13 @@
+sudo: false
+
+language: node_js
+
+node_js:
+  - lts/*
+
+install:
+  - yarn
+
+script:
+  - yarn tsc
+  - yarn converalls
