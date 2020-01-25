@@ -2,6 +2,9 @@
   "name": "apollo-server-logger",
   "version": "1.0.0",
   "description": "A logger for apollo server",
+  "files": [
+    "dist"
+  ],
   "main": "dist/index.js",
   "module": "dist/foo.mjs",
   "source": "src/index.ts",
@@ -16,7 +19,8 @@
     "dev": "microbundle watch",
     "test": "jest",
     "test:watch": "jest --watch",
-    "converalls": "jest --coverage --coverageReporters=text-lcov | coveralls"
+    "converalls": "jest --coverage --coverageReporters=text-lcov | coveralls",
+    "prepublish": "yarn tsc && yarn test && yarn build"
   },
   "husky": {
     "hooks": {
